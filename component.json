@@ -1,0 +1,14 @@
+{
+  "name": "when-all",
+  "repo": "jkroso/when-all",
+  "description": "create a promise for a set of values which might contain promises",
+  "version": "0.1.0",
+  "keywords": ["when","promise"],
+  "dependencies": {},
+  "main": "src/index.js",
+  "scripts": [
+	"src/index.js"
+  ],
+  "styles":[],
+  "license": "MIT"
+}

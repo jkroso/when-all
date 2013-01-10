@@ -1,0 +1,27 @@
+{
+  "name": "when-all",
+  "version": "0.1.0",
+  "description": "create a promise for a set of values which might contain promises",
+  "main": "src/index.js",
+  "dependencies": {
+    "laissez-faire": "*",
+    "when":"jkroso/when"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*"
+  },
+  "scripts" : {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jkroso/when-all.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jkroso/when-all/issues"
+  },
+  "keywords": ["when","promise"],
+  "author": "Jakeb Rosoman",
+  "license": "MIT"
+}
