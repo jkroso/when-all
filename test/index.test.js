@@ -16,6 +16,12 @@ describe('when-all', function () {
    it('should return a promise', function () {
    	all([]).should.be.an.instanceOf(Promise)
    })
+   it('should resolve instantly if the array is empty', function (done) {
+   	all([]).wasFulfilled().should.be.true
+   	all([]).then(function (val) {
+   		val.should.deep.equal([])
+   	}).nend(done)
+   })
    it('should resolve to the values within the original array', function () {
    	all([1,2,3]).end(function (vals) {
    		vals.should.deep.equal([1,2,3])

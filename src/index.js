@@ -1,4 +1,5 @@
 var Promise = require('laissez-faire')
+  , fulfilled = Promise.fulfilled
   , once = require('when').once
 
 module.exports = all
@@ -19,14 +20,18 @@ function all (array) {
 	var res = []
 	  , len = array.length
 	  , pending = len
-	  , promise = new Promise
+
+	if (!pending) return fulfilled(res)
 	
-	while (len) block (--len)
-	function block (i) {
-		once(array[i], function (value) {
+	var promise = new Promise
+	
+	while (len--) once(array[len], receiver(len))
+
+	function receiver (i) {
+		return function (value) {
 			res[i] = value
 			if (--pending === 0) promise.resolve(res)
-		})
+		}
 	}
 
 	return promise
