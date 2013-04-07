@@ -1,17 +1,16 @@
 {
   "name": "when-all",
-  "version": "0.1.0",
-  "description": "create a promise for a set of values which might contain promises",
-  "main": "src/index.js",
+  "version": "0.2.0",
+  "description": "create a promise for the completion of an array of promises",
   "dependencies": {
-    "laissez-faire": "*",
-    "when":"jkroso/when"
+    "laissez-faire": "~0.11.0",
+    "when": "https://github.com/jkroso/when/archive/0.2.0.tar.gz"
   },
   "devDependencies": {
-    "mocha": "*",
-    "chai": "*"
+    "mocha": "~1.9.0",
+    "chai": "~1.5.0"
   },
-  "scripts" : {
+  "scripts": {
     "test": "make test"
   },
   "repository": {
@@ -21,7 +20,10 @@
   "bugs": {
     "url": "https://github.com/jkroso/when-all/issues"
   },
-  "keywords": ["when","promise"],
-  "author": "Jakeb Rosoman",
+  "keywords": [
+    "when",
+    "promise"
+  ],
+  "author": "Jake Rosoman",
   "license": "MIT"
 }

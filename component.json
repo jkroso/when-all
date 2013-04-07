@@ -1,14 +1,15 @@
 {
   "name": "when-all",
   "repo": "jkroso/when-all",
-  "description": "create a promise for a set of values which might contain promises",
+  "description": "create a promise for the completion of an array of promises",
   "version": "0.1.0",
   "keywords": ["when","promise"],
-  "dependencies": {},
-  "main": "src/index.js",
+  "dependencies": {
+    "jkroso/laissez-faire": "0.11.0",
+    "jkroso/when": "0.2.0"
+  },
   "scripts": [
-	"src/index.js"
+	  "index.js"
   ],
-  "styles":[],
   "license": "MIT"
 }

@@ -1,25 +1,29 @@
+
 # when-all
 
-create a promise for a set of values which might contain promises
+  create a promise for the completion of an array of promises
 
 ## Getting Started
 
-With component(1) 
+_With component_  
 
-`component install jkroso/when-all`
+	$ component install jkroso/when-all
 
-In Node.js 
+_With npm_  
 
-`npm install jkroso/when-all`
+	$ npm install --save https://github.com/jkroso/when-all/archive/master.tar.gz
+
+then in your app:
+
+```js
+var all = require('when-all')
+```
 
 ## API
 
-```javascript
-var all = require('when-all')
-```
   - [all()](#all)
 
-## all()
+### all()
 
   Create a promise for an array
   
@@ -30,33 +34,16 @@ all([
 ]).then(compare)
 ```
 
+## Running the tests
 
-## Contributing
-As with all my work this is both a work in progress and a thought in progress. Feel free to chip in in any way you can.
+```bash
+$ npm install
+$ make
+```
+Then open your browser to the `./test` directory.
 
-## Release History
-_(Nothing yet)_
+_Note: these commands don't work on windows._ 
 
-## License
-Copyright (c) 2012 Jakeb Rosoman
+## License 
 
-Permission is hereby granted, free of charge, to any person
-obtaining a copy of this software and associated documentation
-files (the "Software"), to deal in the Software without
-restriction, including without limitation the rights to use,
-copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following
-conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
+[MIT](License)
