@@ -1,5 +1,5 @@
 
-var Promise = require('laissez-faire')
+var Promise = require('laissez-faire/full')
   , newFulfilled = Promise.fulfilled
   , read = require('when').read
 
@@ -13,7 +13,7 @@ module.exports = function(array){
 	var receiver = function(i){
 		return function(value){
 			res[i] = value
-			if (--pending === 0) p.resolve(res)
+			if (--pending === 0) p.fulfill(res)
 		}
 	}
 	var fail = function(e){

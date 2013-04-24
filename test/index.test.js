@@ -1,6 +1,6 @@
 
 var should = require('chai').should()
-	, Promise = require('laissez-faire')
+	, Promise = require('laissez-faire/full')
 	, fulfilled = Promise.fulfilled
 	, rejected = Promise.rejected
 	, all = require('..')
@@ -18,7 +18,7 @@ describe('when-all', function () {
 		all([]).should.be.an.instanceOf(Promise)
 	})
 	it('should resolve instantly if the array is empty', function (done) {
-		all([]).wasFulfilled().should.be.true
+		all([]).state.should.equal('fulfilled')
 		all([]).then(function (val) {
 			val.should.deep.equal([])
 		}).node(done)

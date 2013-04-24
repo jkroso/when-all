@@ -2,10 +2,10 @@
   "name": "when-all",
   "repo": "jkroso/when-all",
   "description": "create a promise for the completion of an array of promises",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "keywords": ["when","promise"],
   "dependencies": {
-    "jkroso/laissez-faire": "0.11.0",
+    "jkroso/laissez-faire": "0.12.0",
     "jkroso/when": "0.2.0"
   },
   "scripts": [
