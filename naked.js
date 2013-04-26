@@ -4,15 +4,16 @@ var Promise = require('laissez-faire/full')
   , read = require('when/read')
 
 /**
- * await the arrival of several values and or promises
+ * The same as index.js but with arguments passed 
+ * directly rather than inside an array
  * 
- * @param {Array} values
+ * @param {...} ...
  * @return {Promise} for an array of values
  */
 
-module.exports = function(array){
+module.exports = function(){
 	var res = []
-	var len = array.length
+	var len = arguments.length
 	var pending = len
 
 	if (!pending) return fulfilled(res)
@@ -29,7 +30,7 @@ module.exports = function(array){
 		len = 0
 	}
 	
-	while (len--) read(array[len], receiver(len), fail)
+	while (len--) read(arguments[len], receiver(len), fail)
 
 	return p
 }
