@@ -11,7 +11,7 @@ _With component_
 
 _With npm_  
 
-	$ npm install --save https://github.com/jkroso/when-all/archive/master.tar.gz
+	$ npm install --save when-all
 
 then in your app:
 
@@ -23,7 +23,7 @@ var all = require('when-all')
 
   - [all()](#all)
 
-### all()
+### all(array:Array)
 
   Create a promise for an array
   
