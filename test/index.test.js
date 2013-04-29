@@ -3,8 +3,10 @@ var should = require('chai').should()
 	, Promise = require('laissez-faire/full')
 	, fulfilled = Promise.fulfilled
 	, rejected = Promise.rejected
-	, all = require('..')
+	, array = require('../array')
 	, naked = require('../naked')
+	, object = require('../object')
+	, all = require('..')
 
 function delay (value, method) {
 	var p = new Promise
@@ -50,3 +52,36 @@ function test(what, all){
 		})
 	})
 }
+
+describe('object', function () {
+	it('resolve to a new Object', function (done) {
+		object({
+			a: delay(1),
+			b: delay(2),
+			c: 3
+		}).then(function(obj){
+			obj.should.deep.equal({a:1,b:2,c:3})
+		}).node(done)
+	})
+
+	it('should fail if one value fails', function (done) {
+		object({
+			a: delay(new Error('fail'), 'reject'),
+			b: delay(2),
+			c: 3
+		}).otherwise(function(e){
+			e.message.should.equal('fail')
+			done()
+		})
+	})
+
+	it('should handle immediate resolution', function (done) {
+		object({
+			a:fulfilled(1),
+			b:fulfilled(2),
+			c:fulfilled(3)
+		}).then(function(obj){
+			obj.should.deep.equal({a:1,b:2,c:3})
+		}).node(done)
+	})
+})

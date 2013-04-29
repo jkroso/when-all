@@ -1,7 +1,7 @@
 {
   "name": "when-all",
-  "version": "0.2.2",
-  "description": "create a promise for the completion of an array of promises",
+  "version": "0.3.0",
+  "description": "normalize an object/array with some values represented with promises",
   "dependencies": {
     "laissez-faire": "~0.12.1",
     "when": "https://github.com/jkroso/when/archive/1.0.0.tar.gz"
