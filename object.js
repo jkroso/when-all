@@ -25,8 +25,9 @@ module.exports = function(obj){
 		}
 	}
 	var fail = function(e){
-		// break loop if it hasn't already finished
-		p.reject(e), len = 0
+		p.reject(e)
+		// attempt to break loop
+		len = 0
 	}
 	
 	while (len--) {
