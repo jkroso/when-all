@@ -6,11 +6,11 @@ var array = require('./array')
  * dispatch to the appropriate module
  *
  * @param {Object|Arraylike} x
- * @return {Promise} new x
+ * @return {Result} new x
  */
 
 module.exports = function(obj){
-	return obj.length === +obj.length
+	return typeof obj.length == 'number'
 		? array(obj)
 		: object(obj)
 }

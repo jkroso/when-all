@@ -6,7 +6,7 @@ var array = require('./array')
  * directly rather than inside an array
  * 
  * @param {...} ...
- * @return {Promise} for an array of values
+ * @return {Result} for an array of values
  */
 
 module.exports = function(){

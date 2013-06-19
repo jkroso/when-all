@@ -1,13 +1,13 @@
 
-var Promise = require('laissez-faire/full')
-  , fulfilled = Promise.fulfilled
-  , read = require('when/read')
+var read = require('when/read')
+  , Result = require('result')
+  , wrap = Result.wrap
 
 /**
  * await the arrival of all values in `obj`
  * 
  * @param {Object} obj
- * @return {Promise} for a new Object
+ * @return {Result} for a new Object
  */
 
 module.exports = function(obj){
@@ -15,17 +15,17 @@ module.exports = function(obj){
 	var keys = []
 	for (var k in obj) keys.push(k)
 	var len = keys.length
-	if (!len) return fulfilled(res)
+	if (len === 0) return wrap(res)
 	var pending = len
-	var p = new Promise
+	var result = new Result
 	var receiver = function(i){
 		return function(value){
 			res[i] = value
-			if (--pending === 0) p.fulfill(res)
+			if (--pending === 0) result.write(res)
 		}
 	}
 	var fail = function(e){
-		p.reject(e)
+		result.error(e)
 		// attempt to break loop
 		len = 0
 	}
@@ -34,5 +34,5 @@ module.exports = function(obj){
 		read(obj[k = keys[len]], receiver(k), fail)
 	}
 
-	return p
+	return result
 }

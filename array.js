@@ -1,29 +1,29 @@
 
-var Promise = require('laissez-faire/full')
-  , fulfilled = Promise.fulfilled
-  , read = require('when/read')
+var read = require('when/read')
+  , Result = require('result')
+  , wrap = Result.wrap
 
 /**
  * await the arrival of all values in `array`
  * 
  * @param {Array} array
- * @return {Promise} for an new array
+ * @return {Result} for an new array
  */
 
 module.exports = function(array){
 	var res = []
 	var len = array.length
-	if (!len) return fulfilled(res)
+	if (len === 0) return wrap(res)
 	var pending = len
-	var p = new Promise
+	var p = new Result
 	var receiver = function(i){
 		return function(value){
 			res[i] = value
-			if (--pending === 0) p.fulfill(res)
+			if (--pending === 0) p.write(res)
 		}
 	}
 	var fail = function(e){
-		p.reject(e)
+		p.error(e)
 		// attempt to break loop
 		len = 0
 	}

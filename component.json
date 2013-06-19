@@ -1,15 +1,26 @@
 {
   "name": "when-all",
   "repo": "jkroso/when-all",
-  "description": "normalize an object/array with some values represented with promises",
-  "version": "0.3.0",
-  "keywords": ["when","promise"],
+  "description": "normalize an object/array where some value may be wrapped in Results",
+  "version": "0.4.0",
+  "keywords": [
+    "when",
+    "result"
+  ],
   "dependencies": {
-    "jkroso/laissez-faire": "0.12.1",
-    "jkroso/when": "1.0.0"
+    "jkroso/when": "3.0.1",
+    "jkroso/result": "0.1.1"
+  },
+  "development": {
+    "visionmedia/mocha": "1.11.0",
+    "chaijs/chai": "1.7.0",
+    "jkroso/serve": "1.4.1"
   },
   "scripts": [
-	  "index.js"
+    "index.js",
+    "array.js",
+    "naked.js",
+    "object.js"
   ],
   "license": "MIT"
 }
