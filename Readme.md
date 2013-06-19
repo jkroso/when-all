@@ -1,15 +1,15 @@
 
 # when-all
 
-  normalize an object/array where some values might be boxed within a promise
+  normalize an object/array where some value may be wrapped in [Results](//github.com/jkroso/result)
 
-## Getting Started
+## Installation
 
-_With component_  
+_With [component](//github.com/component/component), [packin](//github.com/jkroso/packin)  
 
-    $ component install jkroso/when-all
+    $ {package mananger} install jkroso/when-all
 
-_With npm_  
+_With [npm](//github.com/isaacs/npm)_  
 
     $ npm install --save when-all
 
@@ -25,7 +25,7 @@ var all = require('when-all')
 
 ### all(x)
 
-  Create a Promsie for a new `x` with all values lifted out of their promise proxies 
+  Create a Result for a new `x` with all values lifted out of their Result proxies 
   
 ```js
 all([
@@ -69,13 +69,7 @@ asyncCompare(
 ## Running the tests
 
 ```bash
-$ npm install
 $ make
 ```
+
 Then open your browser to the `./test` directory.
-
-_Note: these commands don't work on windows._ 
-
-## License 
-
-[MIT](License)
