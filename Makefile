@@ -1,32 +1,22 @@
-EXPORT= when-all
-GRAPH= node_modules/.bin/sourcegraph.js src/index.js -p javascript,nodeish
-BIGFILE= node_modules/.bin/bigfile.js -x $(EXPORT) -p javascript,nodeish
-REPORTER= spec
+REPORTER=dot
 
-all: test/built.js browser
+serve: node_modules
+	@node_modules/serve/bin/serve
 
-browser: dist dist/when-all.js
-	@du -ah dist/*
+test: node_modules
+	@node_modules/mocha/bin/_mocha test/*.test.js \
+		--reporter $(REPORTER) \
+		--timeout 500 \
+		--check-leaks \
+		--bail
 
-dist:
-	@mkdir -p dist
-
-dist/when-all.js: dist
-	@$(GRAPH) | $(BIGFILE) > $@
-
-test:
-	@node_modules/.bin/mocha test/*.test.js \
-		-R $(REPORTER)
+node_modules: component.json
+	@packin install --meta deps.json,component.json,package.json \
+		--folder node_modules \
+		--executables \
+		--no-retrace
 
 clean:
-	@rm -rf dist
-	@rm -rf test/built.js
+	rm -r node_modules
 
-test/built.js: src/* test/*
-	@node_modules/.bin/sourcegraph.js test/browser.js \
-		--plugins mocha,nodeish,javascript \
-		| node_modules/.bin/bigfile.js \
-			--export null \
-			--plugins nodeish,javascript > $@
-
-.PHONY: all test clean browser
+.PHONY: clean serve test

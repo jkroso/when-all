@@ -1,19 +1,18 @@
 
-var should = require('chai').should()
-	, Promise = require('laissez-faire/full')
-	, fulfilled = Promise.fulfilled
-	, rejected = Promise.rejected
+var object = require('../object')
 	, array = require('../array')
 	, naked = require('../naked')
-	, object = require('../object')
+	, Result = require('result')
+  , chai = require('./chai')
 	, all = require('..')
+	, wrap = Result.wrap
 
-function delay (value, method) {
-	var p = new Promise
+function delay(value, method){
+	var result = new Result
 	setTimeout(function () {
-		p[method || 'fulfill'](value)
-	}, Math.round(Math.random() * 10))
-	return p
+		result[method || 'write'](value)
+	}, Math.random() * 10)
+	return result
 }
 
 test('when-all', all)
@@ -22,30 +21,30 @@ test('when-all/naked', function(array){
 })
 
 function test(what, all){
-	describe(what, function () {
-		it('should return a promise', function () {
-			all([]).should.be.an.instanceOf(Promise)
+	describe(what, function(){
+		it('should return a Result', function () {
+			all([]).should.be.an.instanceOf(Result)
 		})
-		it('should resolve instantly if the array is empty', function (done) {
-			all([]).state.should.equal('fulfilled')
+		it('should resolve instantly if the array is empty', function(done){
+			all([]).state.should.equal('done')
 			all([]).then(function (val) {
 				val.should.deep.equal([])
 			}).node(done)
 		})
-		it('should resolve to the values within the original array', function (done) {
+		it('should resolve to the values within the original array', function(done){
 			all([1,2,3]).then(function (vals) {
 				vals.should.deep.equal([1,2,3])
 				done()
 			})
 		})
-		it('should resolve any promises within the array before resolving itself', function (done) {
-			all([delay(1), delay(2), delay(3)]).then(function (vals) {
+		it('should resolve any results within the array before resolving itself', function(done){
+			all([delay(1), delay(2), delay(3)]).then(function(vals){
 				vals.should.deep.equal([1,2,3])
 				done()
 			})
 		})
-		it('should reject with the first rejection', function (done) {
-			all([delay(1), delay(2, 'reject'), delay(3)]).then(null, function (val) {
+		it('should error with the first failed Result', function (done) {
+			all([delay(1), delay(2, 'error'), delay(3)]).then(null, function(val){
 				val.should.equal(2)
 				done()
 			})
@@ -66,10 +65,10 @@ describe('object', function () {
 
 	it('should fail if one value fails', function (done) {
 		object({
-			a: delay(new Error('fail'), 'reject'),
+			a: delay(new Error('fail'), 'error'),
 			b: delay(2),
 			c: 3
-		}).otherwise(function(e){
+		}).then(null, function(e){
 			e.message.should.equal('fail')
 			done()
 		})
@@ -77,9 +76,9 @@ describe('object', function () {
 
 	it('should handle immediate resolution', function (done) {
 		object({
-			a:fulfilled(1),
-			b:fulfilled(2),
-			c:fulfilled(3)
+			a: wrap(1),
+			b: wrap(2),
+			c: wrap(3)
 		}).then(function(obj){
 			obj.should.deep.equal({a:1,b:2,c:3})
 		}).node(done)
