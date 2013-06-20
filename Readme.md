@@ -5,7 +5,7 @@
 
 ## Installation
 
-_With [component](//github.com/component/component), [packin](//github.com/jkroso/packin)  
+_With [component](//github.com/component/component), [packin](//github.com/jkroso/packin)_  
 
     $ {package mananger} install jkroso/when-all
 
@@ -25,7 +25,7 @@ var all = require('when-all')
 
 ### all(x)
 
-  Create a Result for a new `x` with all values lifted out of their Result proxies 
+  Create a Result for a new `x` with all values lifted out of their Results 
   
 ```js
 all([
@@ -41,14 +41,12 @@ all({
 }).then(compare)
 ```
 
-The functions this module uses to handle objects and arrays are actually implemented differently and you can also access the specific handlers with `require('when-all/{type}')`. I recommend you do this whenever possible to avoid unnecessary duck typing.
-
 ## Example
 
-You could decorate a function so it can optionally take promised values as arguments.
+You could decorate a function so it can take [Results](//github.com/jkroso/result) as arguments.
 
 ```js
-var all = require('when-all/array')
+var all = require('when-all')
 
 function decorate(fn) {
   return function(){
@@ -72,4 +70,4 @@ asyncCompare(
 $ make
 ```
 
-Then open your browser to the `./test` directory.
+Then open your browser [to](http://localhost:3000/test).
