@@ -8,8 +8,11 @@
     "result"
   ],
   "dependencies": {
-    "jkroso/when": "3.0.1",
-    "jkroso/result": "0.1.1"
+    "jkroso/when": "3.1.2",
+    "jkroso/result": "0.2.0",
+    "jkroso/result-type": "1.0.0",
+    "jkroso/foreach": "0.8.1",
+    "jkroso/map": "0.2.1"
   },
   "development": {
     "visionmedia/mocha": "1.11.0",
