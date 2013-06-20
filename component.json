@@ -9,9 +9,7 @@
   ],
   "dependencies": {
     "jkroso/when": "3.1.2",
-    "jkroso/result": "0.2.0",
     "jkroso/result-type": "1.0.0",
-    "jkroso/foreach": "0.8.1",
     "jkroso/map": "0.2.1"
   },
   "development": {
@@ -21,9 +19,7 @@
   },
   "scripts": [
     "index.js",
-    "array.js",
-    "naked.js",
-    "object.js"
+    "deep.js"
   ],
   "license": "MIT"
 }
