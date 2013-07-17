@@ -8,15 +8,9 @@
     "result"
   ],
   "dependencies": {
-    "jkroso/when": "3.2.1",
+    "jkroso/when": "3.2.4",
     "jkroso/result-type": "1.0.0",
-    "jkroso/map": "0.2.4"
-  },
-  "development": {
-    "visionmedia/mocha": "1.11.0",
-    "chaijs/chai": "1.7.0",
-    "jkroso/serve": "1.4.1",
-    "jkroso/result": "0.3.0"
+    "jkroso/map": "0.2.6"
   },
   "scripts": [
     "index.js",
