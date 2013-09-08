@@ -1,20 +1,16 @@
 {
   "name": "when-all",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "normalize an object/array where some value may be wrapped in Results",
   "dependencies": {
+    "map": "http://github.com/jkroso/map/tarball/0.2.7",
     "result-type": "1.0.0",
-    "map": "http://github.com/jkroso/map/tarball/0.2.6",
-    "when": "http://github.com/jkroso/when/tarball/3.2.4"
+    "result": "0.4.2"
   },
   "devDependencies": {
-    "mocha": "1.12.0",
-    "chai": "1.7.2",
-    "serve": "http://github.com/jkroso/serve/tarball/1.4.4",
-    "result": "0.3.1"
-  },
-  "scripts": {
-    "install": "npm dedupe"
+    "serve": "http://github.com/jkroso/serve/tarball/1.5.1",
+    "mocha": "1.12.1",
+    "chai": "1.7.2"
   },
   "repository": {
     "type": "git",

@@ -1,9 +1,13 @@
 
 var ResType = require('result-type')
-  , map = require('map/async')
-  , when = require('when')
+var Result = require('result')
+var map = require('map/async')
+var coerce = Result.coerce
+var when = Result.when
 
-module.exports = unbox
+module.exports = function(value){
+	return coerce(unbox(value))
+}
 
 /**
  * unbox all values in `obj` recursively

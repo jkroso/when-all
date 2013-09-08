@@ -1,17 +1,10 @@
 
+var ResultType = require('result-type')
 var Result = require('result')
-	, deep = require('../deep')
-  , chai = require('./chai')
-	, all = require('..')
-	, wrap = Result.wrap
-
-function delay(value, method){
-	var result = new Result
-	setTimeout(function(){
-		result[method || 'write'](value)
-	}, Math.random() * 10)
-	return result
-}
+var deep = require('../deep')
+var chai = require('./chai')
+var all = require('..')
+var wrap = Result.wrap
 
 test('all()', all)
 test('all.args()', function(array){
@@ -21,7 +14,7 @@ test('all.args()', function(array){
 function test(what, all){
 	describe(what, function(){
 		it('should return a Result', function(){
-			all([]).should.be.an.instanceOf(Result)
+			all([]).should.be.an.instanceOf(ResultType)
 		})
 		it('should resolve instantly if the array is empty', function(done){
 			all([]).state.should.equal('done')
@@ -111,3 +104,11 @@ describe('deep', function(){
 		}).node(done)
 	})
 })
+
+function delay(value, method){
+	var result = new Result
+	setTimeout(function(){
+		result[method || 'write'](value)
+	}, Math.random() * 10)
+	return result
+}

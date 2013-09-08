@@ -2,15 +2,14 @@
   "name": "when-all",
   "repo": "jkroso/when-all",
   "description": "normalize an object/array where some value may be wrapped in Results",
-  "version": "0.4.3",
   "keywords": [
     "when",
     "result"
   ],
   "dependencies": {
-    "jkroso/when": "3.2.4",
     "jkroso/result-type": "1.0.0",
-    "jkroso/map": "0.2.6"
+    "jkroso/result": "0.4.2",
+    "jkroso/map": "0.2.7"
   },
   "scripts": [
     "index.js",
