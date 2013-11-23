@@ -8,12 +8,9 @@
   ],
   "dependencies": {
     "jkroso/result-type": "1.0.0",
-    "jkroso/result": "0.4.2",
-    "jkroso/map": "0.2.7"
+    "jkroso/result": "0.4.4",
+    "jkroso/map": "0.2.9"
   },
-  "scripts": [
-    "index.js",
-    "deep.js"
-  ],
+  "scripts": ["index.js", "deep.js"],
   "license": "MIT"
 }

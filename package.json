@@ -1,28 +1,20 @@
 {
   "name": "when-all",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "description": "normalize an object/array where some value may be wrapped in Results",
   "dependencies": {
-    "map": "http://github.com/jkroso/map/tarball/0.2.7",
+    "map": "jkroso/map#0.2.9",
     "result-type": "1.0.0",
-    "result": "0.4.2"
+    "result": "~0.4.2"
   },
   "devDependencies": {
-    "serve": "http://github.com/jkroso/serve/tarball/1.5.1",
-    "mocha": "1.12.1",
-    "chai": "1.7.2"
+    "serve": "jkroso/serve#1.5.1",
+    "mocha": "*",
+    "chai": "*"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/jkroso/when-all.git"
-  },
-  "bugs": {
-    "url": "https://github.com/jkroso/when-all/issues"
-  },
-  "keywords": [
-    "when",
-    "result"
-  ],
+  "repository": "git://github.com/jkroso/when-all.git",
+  "bugs": "https://github.com/jkroso/when-all/issues",
+  "keywords": ["when", "result"],
   "author": "Jake Rosoman",
   "license": "MIT"
 }
