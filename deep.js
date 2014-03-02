@@ -6,7 +6,7 @@ var coerce = Result.coerce
 var when = Result.when
 
 module.exports = function(value){
-	return coerce(unbox(value))
+  return coerce(unbox(value))
 }
 
 /**
@@ -17,11 +17,11 @@ module.exports = function(value){
  */
 
 function unbox(value){
-	if (value instanceof ResType) return when(value, unbox)
-	if (value && typeof value == 'object') return unboxAll(value)
-	return value
+  if (value instanceof ResType) return when(value, unbox)
+  if (value && typeof value == 'object') return unboxAll(value)
+  return value
 }
 
 function unboxAll(obj){
-	return map(obj, unbox)
+  return map(obj, unbox)
 }

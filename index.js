@@ -10,7 +10,7 @@ module.exports = exports = all
 
 exports.naked =
 exports.args = function(){
-	return all(arguments)
+  return all(arguments)
 }
 
 /**
@@ -21,7 +21,7 @@ exports.args = function(){
  */
 
 function all(obj){
-	return map(obj, identity)
+  return map(obj, identity)
 }
 
 /**
