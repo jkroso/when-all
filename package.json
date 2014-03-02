@@ -1,6 +1,6 @@
 {
   "name": "when-all",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "normalize an object/array where some values may be wrapped in Results",
   "dependencies": {
     "map": "jkroso/map#0.2.11",
@@ -15,6 +15,7 @@
   "repository": "git://github.com/jkroso/when-all.git",
   "bugs": "https://github.com/jkroso/when-all/issues",
   "keywords": ["when", "result"],
+  "files": ["index.js", "deep.js"],
   "author": "Jake Rosoman",
   "license": "MIT"
 }
