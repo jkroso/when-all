@@ -1,14 +1,14 @@
 {
   "name": "when-all",
-  "version": "0.4.6",
-  "description": "normalize an object/array where some value may be wrapped in Results",
+  "version": "0.4.7",
+  "description": "normalize an object/array where some values may be wrapped in Results",
   "dependencies": {
-    "map": "jkroso/map#0.2.9",
+    "map": "jkroso/map#0.2.11",
     "result-type": "1.0.0",
-    "result": "~0.4.2"
+    "result": "~1.0.1"
   },
   "devDependencies": {
-    "serve": "jkroso/serve#1.5.1",
+    "serve": "jkroso/serve#1.5.3",
     "mocha": "*",
     "chai": "*"
   },
